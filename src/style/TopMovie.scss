@@ -1,0 +1,60 @@
+.top8{
+    width: 90%;
+    height: 50%;
+    margin:0 auto;
+    margin-bottom: 20px;
+    min-height: 706px;
+    &::after{
+        clear: both;
+        content: "";
+        display: block;
+    }
+    .panel{
+        width: 22%;
+        height:100%;
+        margin: 10px 5px;
+        float: left;
+
+        .wrap_part{
+            width: 100%;
+            height: 100%;
+            a{
+                
+            width: 100%;
+            height: 70%;
+                img{
+                    
+            width: 100%;
+            height: 70%;
+                }
+            }
+            .poster_content{
+                height: 12%;
+                display: block;
+                width: 100%;
+            }
+            .content_state{
+                height: 8%;
+                display: block;
+                width: 100%;
+                h4{
+                    width: 50%;
+                    height: 100%;
+                    margin: 0;
+                    float: left;
+                }
+                span{
+                    width: 30%;
+                    height: 100%;
+                    display: block;
+                    margin: 0 auto;
+                    text-align: center;
+                    font-weight: bold;
+                    vertical-align: center;
+                    float: right;
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,30 @@
+.movieContainer{
+    height: 90%;
+    margin: 0 auto;
+    width: 90%;
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 1rem;
+    .item{
+        
+        a{
+            text-decoration: none;
+            font-size: 15px;
+            color: black;
+        }
+
+        img{
+            height: 250px;
+            width: 200px;
+            
+        }
+        p{
+            margin-top: 0px;
+            width: 200px;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+
+
+}

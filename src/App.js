@@ -1,21 +1,31 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './App.scss';
-import Home from './mainComponents/Home'
+import Home from './mainComponents/Home';
+import {Route,Switch} from 'react-router-dom';
+import Search from './mainComponents/Search';
+import Trailer from './mainComponents/Trailer';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 
 
 
-class App extends Component {
+function App() {
 
-  render(){
   return (
     <div className="App">
-      <Home></Home>
+      <Switch>
+      <Route path='/trailer/:id' component={Trailer}></Route>
+      <Route path='/search/:id' component={Search}></Route>
+      <Route path='/login' component={Login}></Route>
+      <Route path='/signup' component={Signup}></Route>
+      <Route path='/' component={Home}></Route>
 
+      </Switch>
     </div>
   );
-  }
+  
 }
 
 

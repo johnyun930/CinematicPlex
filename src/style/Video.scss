@@ -1,0 +1,37 @@
+
+.Video{
+    height: 70%;
+    width:100%;
+    background-color: rgb(26, 24, 24);
+
+    div{
+    margin-top:30px;
+    height:100%;
+    width: 70%;
+    margin:0 auto;
+
+    iframe{
+        margin-top:20px;
+        height: 100%;
+        width: 90%;
+        margin: auto auto;
+        display: block;
+    }
+}
+    &:after{
+        clear: both;
+        display: block;
+        content: "";
+    }
+}
+
+.desc{
+    height: 60%;
+    width:  70%;
+    margin: 0 auto;
+
+    h1{
+        margin-top: 30px;
+    }
+
+}

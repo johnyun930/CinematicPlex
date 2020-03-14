@@ -1,0 +1,76 @@
+.LoginPage{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-auto-rows: auto;
+    align-items: center;
+
+    .loginImage{
+        height: 100%;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    
+.login{
+
+    width: 100%;
+    height: 50%;
+    display: block;
+    margin: auto auto;
+    form{
+        height: 100%;
+        display: block;
+        fieldset{
+            height: 100%;
+            border: none;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        div{
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            margin-top: 30px;
+            
+                input{
+                    width: 70%;
+                    height: 100%;
+                }
+            
+        }
+    
+        p{
+            margin: 0 auto;
+            width: 100%;
+            height: 10%;
+            text-align: center;
+            margin-top: 20px;
+            a{
+                width: 10%;
+                font-size: 12px;
+                margin-left: 10px;
+                color: #1976d2;
+                text-decoration: none;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            input{
+                width: 70%;
+                font-size: 18px;
+                height: 100%;
+                margin-top: 10px;
+            }
+           
+        }
+    }
+    
+   
+
+}
+}

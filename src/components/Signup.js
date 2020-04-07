@@ -9,7 +9,7 @@ export default function Signup(){
 
         <div className="signup">
         
-        <form action="/register" method="post">
+        <form action="/signup" method="post">
         <fieldset>
         <legend>Sign Up</legend>
         <p><input type ="text" placeholder="Username" name="username"></input></p>

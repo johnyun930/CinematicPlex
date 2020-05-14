@@ -32,6 +32,9 @@ export default function Description(props){
     return(<h2>ERROR...</h2>)
    }else if(!load){
        return <h2>LOADING...</h2>
+
+   }else if(data === null){
+       return <h2>Sorry no Data</h2>
    }else if(load&&data!=null){
        var gerne = "";
        for(let i=0; i<data.genres.length;i++){

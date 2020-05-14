@@ -24,7 +24,11 @@ export default function Video(props){
         return <div className="Video">Error... Sorry try again</div>
         }else if(!load){
             return <div className="Video"><h1>Loading...</h1></div>
-        }else if(data.length!=null&&load){
+        }else if(data === null){
+            return(<div className="Video"> <h2>Sorry, there is no trailer..</h2></div>)
+         }
+        
+        else if(data!=null&&load){
            
             return(
         <div className="Video">
@@ -38,8 +42,6 @@ export default function Video(props){
 
     )
 
-}else{
-   return(<div className="Video"> <h2>Sorry, there is no trailer..</h2></div>)
 }
 
 }

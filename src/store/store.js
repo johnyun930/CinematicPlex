@@ -2,6 +2,11 @@ import {createStore} from 'redux';
 console.log("store loading");
 
 const init = {
+    login: false,
+    userinfo:{
+        userid: null,
+        email: null,
+    },
     topmovie:{
         load:false,
         data:null,
@@ -74,6 +79,10 @@ export default createStore((state=init,action)=>{
             err:null
         }}
     }
+    if(action.type === 'LOGIN'){
+        return{...state,userinfo:action.userinfo,login:action.login}
+    }
+
     return state;
    }
 , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

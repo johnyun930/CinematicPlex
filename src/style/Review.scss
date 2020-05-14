@@ -1,7 +1,227 @@
-.Review{
-    width:90%;
-    height:30%;
+
+.review{
+    width:70%;
+    height:60%;
     
-    background-color: black;
+    
     margin: 5% auto;
+
+
+    ul{
+        padding-left: 0px;
+        border-top: 1px solid black;
+    li{
+        list-style: none;
+        
+        border-bottom: 1px solid black;
+
+        
+    
+    
+
+        div{
+            
+            form{
+                width: 100%;
+                height: 100%;
+                border: 1px solid #e5e5e5;
+                margin-bottom: 1%;
+                .updatefixcolumn
+                {
+                    width: 100%;
+                    padding-right: 10px;
+                    text-align: end;
+                    box-sizing: border-box;
+                    div{
+                    height: 4%;
+                   
+                    
+                }
+                border-bottom: 1px ridge #e5e5e5;
+            }
+            .updatewriter{
+                border: 1px solid #e5e5e5;
+                height: 70px;
+                span{
+                    display: block;
+                float: left;
+                margin-left: 1%;
+                font-size: 20px;
+                margin-top: 1.5%;
+                height:60%;
+               
+            box-sizing: border-box;
+                }
+                .updatestar{
+                margin-top: 1%;
+                margin-left: 1%;
+                padding-top: 0.5%;
+                width: 50%;
+                height: 80%;
+                float: left;
+            box-sizing: border-box;
+            img{
+                width: 5%;
+                height: 50%;
+            }
+                }
+           
+            }
+            .updatingcontainer{
+                border: 1px solid #e5e5e5;
+                width: 100%;
+                height:150px;
+               
+                .updating{
+                    
+                   
+                    margin-top: 2%;
+                    float: left;
+                   text-align: center;
+                    
+                     width: 90%;
+                     height: 100%;
+                     vertical-align: middle;    
+                    #updatebox{
+                        width: 95%;
+                        border: none;
+                        height: 100px;
+                        resize: none;
+                        
+                    }
+                   
+                }
+                #updatebutton{
+                    float: right;
+                    height: 100%;
+                    width: 10%;
+                    box-sizing: border-box;
+                    color: white;
+                        background-color: red;
+                }
+            }
+            }
+
+            .fixcolumn{
+                width: 25%;
+                float: right;
+                padding-top: 0px;
+                text-align: end;
+                span{
+                    
+                    &:hover{
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .star{
+               float: left;
+            width: 3%;
+           
+            }
+            .rate{
+                width: 70%;
+                span{
+                    margin-left: 0px;
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+            }
+            span{
+                font-size: 15px;
+            }
+        strong{
+            font-size: 20px;
+            float: left;
+           
+
+            }
+           
+
+            .reviewfoot{
+                margin: 0px 0px;
+                span{
+                font-size: 16px;
+                color: rgb(153, 148, 148);
+                }
+            }
+        }
+    }
+}
+
+
+.review_write{
+    height: 60%;
+    width: 100%;
+    
+    
+    form{
+        width: 100%;
+        height: 50%;
+        border: 1px solid #e5e5e5;
+        .ratewriter{
+            width: 100%;
+            height: 45%;
+            border-bottom: 1px solid #e5e5e5;
+            span{
+                display: block;
+                float: left;
+                margin-left: 1%;
+                font-size: 20px;
+                margin-top: 1.5%;
+                height:60%;
+            box-sizing: border-box;
+
+                
+            }
+            .reviewstar{
+                margin-left: 1%;
+                margin-top: 1%;
+                padding-top:0.5%;
+                width: 50%;
+                height: 80%;
+                float: left;
+            box-sizing: border-box;
+
+            img{
+                width: 5%;
+                height: 50%;
+            }
+        }
+
+        }
+        .writingcontainer{
+            border: 1px solid #e5e5e5;
+            float: left;
+            width: 90%;
+            height: 100%;
+            background-color: white;
+            .writing{
+         margin: 0px auto;
+         margin-top: 2%;
+         width: 95%;
+         height: 70%;
+         vertical-align: middle;           
+    #textbox{
+        width: 100%;
+        border: none;
+        height:100%;
+        resize: none;
+    }
+    
+            }
+           
+}
+#button{
+    float: left;
+    width: 9.78%;
+    height:  100%;
+    color: white;
+    background-color: #FF0C00;
+    font-size: 18px;
+}
+}
+}
 }

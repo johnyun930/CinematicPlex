@@ -14,7 +14,7 @@ export default function Review(){
     const[rate,setrate] = useState(0);
     const[data,setdata] = useState({});
     const[updaterate,setupdaterate] = useState(0);
-    const[updatereview,setupdatereivew] = useState("");
+    const[updatereview,setupdatereview] = useState("");
     var stars = [];
     var updatestars = [];
 
@@ -22,7 +22,7 @@ export default function Review(){
     
 
     function readData(data){
-        console.log(data);
+        console.log("this is read data");
         var newlist = [];
         if(data === null){
             setreviews(<h3>No Reviews</h3>)
@@ -38,10 +38,37 @@ export default function Review(){
                    var list = <li>
                        
                        <div>
-                           <form>
+                           <form data-docid={data[i].ID} onSubmit={(e)=>{
+                               e.preventDefault();
+                               if(data[i].Review===updatereview&&data[i].Rate===updaterate){
+                                   console.log("this is same review");
+                                var condition = [...toggle];
+                                condition[i] = false;
+                                setToggle(condition);
+                               }else{
+                                   let post = {
+                                    ID: e.target.dataset.docid,
+                                    MovieID:(store.getState().trailerID).toString(),
+                                    Username:store.getState().userinfo.userid,
+                                     Rate: updaterate.toString(),
+                                     Review: updatereview,
+                                   }
+                                
+                                   fetch("/updatereview",{
+                                    method:"POST",
+                                    headers:{
+                                     'content-type': 'application/json'
+                                 },
+                                 body:JSON.stringify(post)  
+                                }).then(res=>res.json()).then(seconddata=>{
+                                setdata(seconddata);
+                                })
+
+                               }
+                           }}>
                                <div className="updatefixcolumn">
                            <div >
-                        <span data-docid={data[i].ID} onClick={function(){
+                        <span  onClick={function(){
                           var condition = [...toggle];
                           condition[i] = false;
                           setToggle(condition);
@@ -73,12 +100,15 @@ export default function Review(){
                     </div>
                     <div className="updatingcontainer">
                         <div className="updating">
-                    <textarea id="updatebox"  name="review" value={data[i].Review} onChange={(e)=>{
+                    <textarea id="updatebox"  name="review" value={updatereview} onChange={(e)=>{
                         
+
+                        setupdatereview(e.target.value);
+                        console.log(updatereview);
                     }} placeholder="UpdateReview" rows="10" maxLength="200" size="250"></textarea>
                     
                    </div>
-                   <input id="updatebutton" type="submit" value="write"></input>
+                   <input id="updatebutton" type="submit" value="Update"></input>
                    </div>
                    
                            </form>
@@ -94,12 +124,12 @@ export default function Review(){
                         </div>
                         <div className="fixcolumn">
                         <span data-docid={data[i].ID} onClick={function(){
-                         
+                         console.log("This is onClick");
                           var condition = [false,false,false,false,false];
                           condition[i] = true;
-                          setupdaterate(Number(data[i].Rate));
                           setToggle(condition);
-                          
+                          setupdaterate(Number(data[i].Rate));
+                          setupdatereview(data[i].Review);
                           
                           
                         }}>Update</span>
@@ -183,11 +213,13 @@ export default function Review(){
         let ratestar;
         if(i<updaterate){
             ratestar = <img src={filledstar} onClick={()=>{
-                setrate(i+1);
+                setupdaterate(i+1);
+                console.log(updaterate)
             }}></img>
         }else{
             ratestar = <img src={emptystar} onClick={()=>{
-                setrate(i+1);
+                setupdaterate(i+1);
+                console.log(updaterate)
             }}></img>
         }
         updatestars.push(ratestar);
@@ -220,11 +252,9 @@ export default function Review(){
     },[data])
 
     useEffect(()=>{
-        
-        
-        console.log("readdata log")
-        readData(data)
-    },[toggle])
+        readData(data);
+   
+    },[toggle,updaterate,updatereview])
  
 
 

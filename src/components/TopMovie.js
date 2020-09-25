@@ -72,7 +72,7 @@ export default class TopMovie extends Component{
             }
             list.push(<div className="panel">
             <div className="wrap_part">
-            <NavLink to={"/trailer/"+this.state.data[i].id}><img src={"https://image.tmdb.org/t/p/w500"+this.state.data[i].poster_path} ></img></NavLink>
+            <NavLink to={"/trailer/"+this.state.data[i].id}><img alt="trailer" src={"https://image.tmdb.org/t/p/w500"+this.state.data[i].poster_path} ></img></NavLink>
         <span className="poster_content"><h3>{title}</h3></span>
                 <span className="content_state">
                 <h4>Rate</h4>
@@ -95,7 +95,7 @@ export default class TopMovie extends Component{
 
                 var i = this.state.ImageNum;
                 i--
-                if(i==-1){
+                if(i===-1){
                    i = 3
                 }
                 this.setState({ImageNum:i})
@@ -106,7 +106,7 @@ export default class TopMovie extends Component{
         <button className="carouselbtn right" onClick={()=>{
                   var i = this.state.ImageNum;
                   i++
-                  if(i==4){
+                  if(i===4){
                      i= 0
                   }
                   this.setState({ImageNum:i})

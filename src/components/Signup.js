@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React from 'react';
 import mainImage from '../images/mainImage.jpg';
 import { NavLink } from 'react-router-dom';
 
 export default function Signup(){
     return(
         <div className="signupPage">
-        <div className="signupImage"><img src={mainImage}></img> </div>
+        <div className="signupImage"><img alt="Cinematicplex" src={mainImage}></img> </div>
 
         <div className="signup">
         

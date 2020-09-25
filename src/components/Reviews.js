@@ -9,7 +9,6 @@ export default function Review(){
    
     const [reviews,setreviews] = useState([]);
     const [toggle,setToggle] = useState([]);
-    const [page, setpage] = useState(0);
     const[review,setreview] = useState("");
     const[rate,setrate] = useState(0);
     const[data,setdata] = useState({});
@@ -27,22 +26,16 @@ export default function Review(){
         if(data === null){
             setreviews(<h3>No Reviews</h3>)
         }else{
-            console.log(data)
-           
             for(let i=0; i<data.length;i++){
-                
-                
-
+                let list;
                 if(data[i].Username === store.getState().userinfo.userid){
-                   if(toggle[i]===true){
-                   var list = <li>
-                       
+                    if(toggle[i]===true){
+                    list = <li>  
                        <div>
                            <form data-docid={data[i].ID} onSubmit={(e)=>{
                                e.preventDefault();
                                if(data[i].Review===updatereview&&data[i].Rate===updaterate){
-                                   console.log("this is same review");
-                                var condition = [...toggle];
+                                let condition = [...toggle];
                                 condition[i] = false;
                                 setToggle(condition);
                                }else{
@@ -76,7 +69,7 @@ export default function Review(){
                           |
                         <span data-docid={data[i].ID} onClick={function(e){
                             if(data[i].Username === store.getState().userinfo.userid){
-                            var doublecheck = window.confirm("Are you sure to delete this comment??");
+                            let doublecheck = window.confirm("Are you sure to delete this comment??");
                             if(doublecheck){
                                fetch("/deletereview",{
                                    method:"POST",
@@ -115,12 +108,12 @@ export default function Review(){
                        </div>
                    </li>
                    }else{
-                var list =<li>
+                  list =<li>
                 <div>
                     <strong>{data[i].Username}</strong>
                     <div>
                         <div className ="star">
-                              <img src={star} width="40px"></img>
+                              <img src={star} alt="rating" width="40px"></img>
                         </div>
                         <div className="fixcolumn">
                         <span data-docid={data[i].ID} onClick={function(){
@@ -168,12 +161,12 @@ export default function Review(){
                     }
             }
             else{
-                    var list =<li>
+                    list =<li>
                 <div>
                     <strong>{data[i].Username}</strong>
                     <div>
                         <div className ="star">
-                              <img src={star} width="40px"></img>
+                              <img src={star} alt="rating" width="40px"></img>
                         </div>
                          <div className ="rate">
                         <span>{data[i].Rate}</span>
@@ -198,11 +191,11 @@ export default function Review(){
     for(let i=0; i<5;i++){
         let ratestar;
         if(i<rate){
-            ratestar = <img src={filledstar} onClick={()=>{
+            ratestar = <img src={filledstar} alt="rating" onClick={()=>{
                 setrate(i+1);
             }}></img>
         }else{
-            ratestar = <img src={emptystar} onClick={()=>{
+            ratestar = <img src={emptystar} alt="rating" onClick={()=>{
                 setrate(i+1);
             }}></img>
         }
@@ -212,12 +205,12 @@ export default function Review(){
     for(let i=0; i<5;i++){
         let ratestar;
         if(i<updaterate){
-            ratestar = <img src={filledstar} onClick={()=>{
+            ratestar = <img src={filledstar} alt="rating" onClick={()=>{
                 setupdaterate(i+1);
                 console.log(updaterate)
             }}></img>
         }else{
-            ratestar = <img src={emptystar} onClick={()=>{
+            ratestar = <img src={emptystar} alt="rating" onClick={()=>{
                 setupdaterate(i+1);
                 console.log(updaterate)
             }}></img>

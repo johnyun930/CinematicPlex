@@ -17,11 +17,8 @@ export default function PMovie(){
         ).then(
             (result) =>{
                 store.dispatch({type:'PMOVIE',pmovie:{data:result.results,err:null,load:true}})
-                
-
             },(err)=>{
-                store.dispatch({type:'PMOVIE',pmovie:{data:null,err:err,load:true}})
-              
+                store.dispatch({type:'PMOVIE',pmovie:{data:null,err:err,load:true}})     
             }
         )
     },[])
@@ -41,7 +38,7 @@ export default function PMovie(){
                 list.push(
                     <div className="panel">
             <div className="wrap_part">
-                <NavLink to={"/trailer/"+data[i].id} ><img src={"https://image.tmdb.org/t/p/w500"+data[i].poster_path} data-id={data[i].id}></img></NavLink>
+                <NavLink to={"/trailer/"+data[i].id} ><img alt="trailer" src={"https://image.tmdb.org/t/p/w500"+data[i].poster_path} data-id={data[i].id}></img></NavLink>
         <span className="poster_content"><h3>{title}</h3></span>
                 <span className="content_state">
                 <h4>Rate</h4>
@@ -63,7 +60,7 @@ export default function PMovie(){
         <button onClick={()=>{
             var i = ImageNum;
             i--;
-            if(i==-1){
+            if(i===-1){
                 i=3
             }
             setImageNum(i);
@@ -74,7 +71,7 @@ export default function PMovie(){
         <button onClick={()=>{
             var i = ImageNum;
             i++;
-            if(i==4){
+            if(i===4){
                 i=0;
             }
             setImageNum(i);

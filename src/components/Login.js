@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import mainImage from '../images/mainImage.jpg';
 import store from '../store/store';
 
@@ -40,8 +40,9 @@ onSubmit(e){
         
     )
     .then(data=>{
-    
-        store.dispatch({type:"LOGIN",userinfo:{userid:data.UserName,email:data.Email},login:true})
+        let loginInfo = {userid:data.UserName,email:data.Email};
+        store.dispatch({type:"LOGIN",userinfo:loginInfo,login:true})
+        localStorage.state = JSON.stringify(loginInfo);
         this.props.history.push('/')
     });
 }
@@ -54,7 +55,7 @@ render(){
 
 return(
 <div className="LoginPage">
-<div className="loginImage"><img src={mainImage }></img></div>
+<div className="loginImage"><img alt="cinematicplex" src={mainImage }></img></div>
 <div className="login">
 <form onSubmit={onSubmit}>
 <fieldset>

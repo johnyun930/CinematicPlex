@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import {Button} from 'react-bootstrap'
 import {NavLink} from 'react-router-dom';
 import store from '../store/store';
@@ -6,7 +6,7 @@ import store from '../store/store';
 
 
 
-function Header (props){
+function Header (){
     console.log("Header");
     const[toggle,setToggle] = useState(false);
     const[searchtext,setText] = useState("");
@@ -14,12 +14,22 @@ function Header (props){
     const[login,setlogin] = useState(store.getState().login);
     var currentstate= null;
     if(!login){
-        currentstate =<NavLink id="login" to = {"/login"}><div>Login</div></NavLink>;
+        if(localStorage.state === undefined){
+            currentstate =<NavLink id="login" to = {"/login"}><div>Login</div></NavLink>;
+        }else{
+            var userinfo = JSON.parse(localStorage.state);
+
+            console.log(userinfo);
+
+            store.dispatch({type:"LOGIN",userinfo:userinfo,login:true})
+          
+        }
     }else{
+        console.log("Logged in state")
     currentstate = <div id="usericon" onClick={function(e){setToggle(!toggle); console.log(toggle)}}>{store.getState().userinfo.userid}</div>
     }
     store.subscribe(()=>{
-        setlogin(store.getState().userinfo.userid);
+        setlogin(store.getState().login);
     })
 
     var member = <div className="userstate">
@@ -28,6 +38,7 @@ function Header (props){
         <div><div onClick={()=>{
             store.dispatch({type:"LOGIN",userinfo:{userid:null,email:null},login:false})
             setToggle(false);
+            localStorage.clear();
         }}>Log Out</div></div>
     
     </div>

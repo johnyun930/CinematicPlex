@@ -33,7 +33,7 @@ export default function Video(props){
             return(
         <div className="Video">
         <div>
-        <iframe width="1106" 
+        <iframe title="nothing" width="1106" 
         height="622" src={"https://www.youtube.com/embed/"+data[0].key+"?rel=0"}
         frameborder="0" allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -48,7 +48,7 @@ export default function Description(props){
        for(let i=0; i<data.spoken_languages.length;i++){
         lang += data.spoken_languages[i].name
         
-        if(i != data.spoken_languages.length-1){
+        if(i !== data.spoken_languages.length-1){
             lang += ", "
         }
    }

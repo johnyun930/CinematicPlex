@@ -20,7 +20,7 @@ export default function Review(){
     
     
 
-    function readData(data){
+    function readReview(data){
         console.log("this is read data");
         var newlist = [];
         if(data === null){
@@ -245,9 +245,9 @@ export default function Review(){
     },[data])
 
     useEffect(()=>{
-        readData(data);
+        readReview(data);
    
-    },[toggle,updaterate,updatereview])
+    },[data,toggle,updaterate,updatereview])
  
 
 

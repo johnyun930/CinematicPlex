@@ -10,9 +10,12 @@ function Header (){
     console.log("Header");
     const[toggle,setToggle] = useState(false);
     const[searchtext,setText] = useState("");
-
     const[login,setlogin] = useState(store.getState().login);
     var currentstate= null;
+    store.subscribe(()=>{
+        setlogin(store.getState().login);
+    })
+   
     if(!login){
         if(localStorage.state === undefined){
             currentstate =<NavLink id="login" to = {"/login"}><div>Login</div></NavLink>;
@@ -28,13 +31,12 @@ function Header (){
         console.log("Logged in state")
     currentstate = <div id="usericon" onClick={function(e){setToggle(!toggle); console.log(toggle)}}>{store.getState().userinfo.userid}</div>
     }
-    store.subscribe(()=>{
-        setlogin(store.getState().login);
-    })
+  
+  
 
     var member = <div className="userstate">
-        <div><div>My Account</div></div
-        ><div><div>Setting</div></div>
+        <div><div><NavLink to = "/userpage">My Account</NavLink></div></div>
+        <div><div>Setting</div></div>
         <div><div onClick={()=>{
             store.dispatch({type:"LOGIN",userinfo:{userid:null,email:null},login:false})
             setToggle(false);

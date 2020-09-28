@@ -9,7 +9,7 @@ class Login extends Component{
 constructor(props){
     super(props);
     this.state={
-        username: '',
+        username:'',
         password:''
     };
     this.onChange = this.onChange.bind(this);
@@ -40,7 +40,8 @@ onSubmit(e){
         
     )
     .then(data=>{
-        let loginInfo = {userid:data.UserName,email:data.Email};
+        console.log(data);
+        let loginInfo = {userid:data.UserName,firstName:data.FirstName,lastName:data.LastName,email:data.Email,phone:data.Phone};
         store.dispatch({type:"LOGIN",userinfo:loginInfo,login:true})
         localStorage.state = JSON.stringify(loginInfo);
         this.props.history.push('/')

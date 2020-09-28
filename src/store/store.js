@@ -6,6 +6,9 @@ const init = {
     userinfo:{
         userid: null,
         email: null,
+        firstName: null,
+        lastName: null,
+        phone: null
     },
     topmovie:{
         load:false,

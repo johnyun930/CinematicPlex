@@ -11,13 +11,17 @@
     height: 70%;
     margin: auto auto;
 }
+form{
+    width: 80%;
+    height: 100%;
+}
 
 .mainInfo{
     width: 80%;
     height: 100%;
     display: grid;
     margin: auto auto;
-    grid-template-rows: repeat(1fr,3);
+    grid-template-rows: repeat(1fr,4);
     background-color: #ffe4b5;
    
     div{
@@ -35,20 +39,33 @@
             float: left;
             position: relative;
             div{
-            background-color: gray;
-            outline: 2px dashed #92b0b3;
-            outline-offset: -10px;
-            text-align: center;
-            transition: all .15s ease-in-out;
-            
                 width: 100%;
-                height: 80%;
+                height: 90%;
+                display: block;
+                background-color: gray;
+                outline: 2px dashed #92b0b3;
+                outline-offset: -10px;
+                text-align: center;
+                transition: all .15s ease-in-out;
+              
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 35px;
+                }
+            
+               
             }
             input{
-                position: absolute;
-                left: 1%;
-                bottom: 1%;
+                width: 75px;
+                float: left;
     
+            }
+            strong{
+                
+                font-weight: bold;
+                font-size: 0.8rem;
+                
             }
         }
         

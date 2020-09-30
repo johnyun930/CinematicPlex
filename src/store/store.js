@@ -47,6 +47,10 @@ export default createStore((state=init,action)=>{
        return state = {...state,topmovie:{data:action.topmovie.data,load:action.topmovie.load,err:action.topmovie.err}}
        
     }
+
+    if(action.type === 'UPDATEUSERINFO'){
+        return state = {...state,userinfo:action.userinfo}
+    }
    
     if(action.type === 'PMOVIE'){
         state ={...state,pmovie:action.pmovie}

@@ -24,7 +24,7 @@ export default function Signup(){
         <p><input type ="text" pattern="\w{6,15}@[a-z,A-Z]+.(com|net|co.kr)$"  placeholder="Email"  name="email"></input> </p>
         <p><input type ="text" pattern="[a-z,A-Z]{2,20}" placeholder="FirstName" name="firstname"></input></p> 
         <p><input type ="text" pattern="[a-z,A-Z]{2,20}" placeholder="LastName" name="lastname"></input> </p>
-        <p><input type ="text" pattern="\d{3}\d{3}\d{4}" placeholder="PhoneNumber" name ="phone"></input></p>
+        <p><input type ="text" pattern="^\d{3}\d{3}\d{4}$" placeholder="PhoneNumber" name ="phone"></input></p>
         <p><input type ="submit" onClick={(e)=>{
             
         }} name="submit" value="Sign Up"></input></p>

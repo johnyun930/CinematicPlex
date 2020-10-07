@@ -36,11 +36,13 @@
                 margin-bottom: 0px;
         
                 text-align: center;
+                
                 input{
                     width: 70%;
                     height: 100%;
                     font-size: 18px;
                 }
+               
                 a{
                     width: 70%;
                 font-size: 15px;
@@ -52,6 +54,12 @@
                 }
                 
                 }
+            }
+            span{
+                padding-top: 3%;
+                font-size: 11px;
+                height: 3%;
+                display: block;
             }
         }
     }

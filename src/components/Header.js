@@ -6,7 +6,7 @@ import store from '../store/store';
 
 
 
-function Header (){
+function Header (props){
     console.log("Header");
     const[toggle,setToggle] = useState(false);
     const[searchtext,setText] = useState("");
@@ -37,11 +37,11 @@ function Header (){
     var member = <div className="userstate">
         <div><div><NavLink to = "/userpage">My Account</NavLink></div></div>
         <div><div>Setting</div></div>
-        <div><div onClick={()=>{
+        <div><NavLink to = "/"><div onClick={()=>{
             store.dispatch({type:"LOGIN",userinfo:{userid:null,email:null},login:false})
             setToggle(false);
             localStorage.clear();
-        }}>Log Out</div></div>
+        }}>Log Out</div></NavLink></div>
     
     </div>
 

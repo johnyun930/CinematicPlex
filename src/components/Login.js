@@ -36,15 +36,19 @@ onSubmit(e){
         body:JSON.stringify(post)
 
     })
-    .then(res=>res.json()
-        
-    )
+    .then(res=>res.json())
     .then(data=>{
-        console.log(data);
-        let loginInfo = {userid:data.UserName,firstName:data.FirstName,lastName:data.LastName,email:data.Email,phone:data.Phone};
-        store.dispatch({type:"LOGIN",userinfo:loginInfo,login:true})
-        localStorage.state = JSON.stringify(loginInfo);
-        this.props.history.push('/')
+      if(data.State===undefined){
+        
+         let loginInfo = {userid:data.UserName,firstName:data.FirstName,lastName:data.LastName,email:data.Email,phone:data.Phone,profile:"http://localhost:8000/profile/" + data.UserName + "/" + data.UserName + ".jpg"}
+         store.dispatch({type:"LOGIN",userinfo:loginInfo,login:true})
+         localStorage.state = JSON.stringify(loginInfo);
+         this.props.history.push('/')
+        }else if(!data.State){
+            alert(data.Message);
+            return;
+             
+        }
     });
 }
 
@@ -63,7 +67,7 @@ return(
 <legend>Log In</legend>
 
 <p><input type = "text" name="username" value={username} onChange={onChange} placeholder="Username"></input></p>
-<p><input type = "text" name="password" value={password} onChange={onChange}  placeholder="password"></input></p>
+<p><input type = "password" name="password" value={password} onChange={onChange}  placeholder="password"></input></p>
 <div>
 <input type = "submit" value="Login"></input>
 </div>

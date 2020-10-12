@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import store from '../store/store';
+import UserNav from './UserNav';
 
 
 
@@ -8,8 +9,8 @@ export default function MyAccount(){
     const [lastName,setLastName] = useState(store.getState().userinfo.lastName);
     const [email,setEmail] = useState(store.getState().userinfo.email);
     const [phone,setPhone] = useState(store.getState().userinfo.phone);
-    const [userImageFile,setUserImageFile] = useState({});
-    const [imageUrl,setimageUrl] = useState(null);
+    const [userImageFile,setUserImageFile] = useState(null);
+    const [imageUrl,setimageUrl] = useState(store.getState().userinfo.profile); 
     const [imageTitle,setImageTitle] = useState(null);
     
     store.subscribe(()=>{
@@ -17,6 +18,7 @@ export default function MyAccount(){
         setLastName(store.getState().userinfo.lastName);
         setPhone(store.getState().userinfo.phone);
         setEmail(store.getState().userinfo.email);
+        setimageUrl(store.getState().userinfo.profile);
 
     })
 
@@ -47,10 +49,10 @@ export default function MyAccount(){
         }
         let file = files[0];
         if(file.type.match(/image.*/)){
+            setUserImageFile(file);
                 let reader = new FileReader();
                             
                             reader.onloadend = () => {
-                               setUserImageFile(file);
                                setimageUrl(reader.result);
                                setImageTitle(file.name);
 
@@ -65,29 +67,30 @@ export default function MyAccount(){
     }
 
     function onSubmit(e){
-        console.log(store.getState().userinfo.userid)
         e.preventDefault();
-        let post = {
-            UserName: store.getState().userinfo.userid,
-            UserImage: userImageFile,
-            FirstName: firstName,
-            LastName: lastName,
-            Email:email,
-            Phone: phone
+        let formdata = new FormData();
+        let userid = store.getState().userinfo.userid;
+        formdata.append("username",userid);
+        formdata.append("firstName",firstName);
+        formdata.append("lastName",lastName);
+        formdata.append("email",email);
+        formdata.append("phone",phone);
+        if(userImageFile!=null){
+        formdata.append("userImage",userImageFile,userid+".jpg");
         }
         fetch('/updateUser',{
             method:"POST",
-            headers:{
-                'content-type': 'application/json'
-            },
-            body:JSON.stringify(post)
+            headers:{},
+            body:formdata
         }).then(res=>res.json()).then(data=>{
+            console.log(data);
             let userinfo = {
                 userid: data.UserName,
                  email: data.Email,
                 firstName: data.FirstName,
                 lastName: data.LastName,
-                phone: data.Phone
+                phone: data.Phone,
+                profile: imageUrl
             }
             store.dispatch({
                 type: 'UPDATEUSERINFO',
@@ -99,12 +102,7 @@ export default function MyAccount(){
    
     return(
         <div className="accountpage">
-            <div className="userNav">
-                <ul>
-                    <li>MyAccount</li>
-                    <li>Favorite</li>
-                </ul>
-            </div>
+           <UserNav></UserNav>
             <form onSubmit={onSubmit}>
             <div className="mainInfo">
                 <div className="userImage">
@@ -158,8 +156,8 @@ export default function MyAccount(){
 
                 </div>
             </div>
-            <div>
-                <input type="submit" value="Update Info"></input>
+            <div >
+                <input id="submit" type="submit" value="Update Info"></input>
             </div>
             </div>
             </form>

@@ -8,7 +8,8 @@ const init = {
         email: null,
         firstName: null,
         lastName: null,
-        phone: null
+        phone: null,
+        profile:null
     },
     topmovie:{
         load:false,

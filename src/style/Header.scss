@@ -27,14 +27,16 @@ header{
     &:hover{
         cursor: pointer;
     }
+    position: relative;
     
     
   
     .userstate{
         width: 150px;
-        
         background-color: white;
         border: 1px solid black;
+        position: absolute;
+        left: 30%;
         div{
             margin: 0 auto;
            padding-top: 4px;
@@ -57,19 +59,28 @@ header{
 
     a{
         
-    border: 1px solid black;
-        background-color: #4387fd;
-        width: 70px;
+        width: 100%;
         height: 100%;
         margin: auto auto;
         display: block;
+        opacity: 0.8;
         text-decoration: none;
         text-align: center;
         font-size: 15px;
         font-weight: bold;
+
+        &:link{
+            color: black;
+        }
+        &:visited{
+            color: black;
+        }
+        &:hover{
+            opacity: 1;
+            color: white;
+        }
         div{
             height: 70%;
-            color: white;
             margin-top: 12%;
         }
     }

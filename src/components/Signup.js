@@ -37,9 +37,9 @@ export default function Signup(props){
            if(data.State){
             let loginInfo = {userid:userName,firstName:firstName,lastName:lastName,email:email,phone:phone};
             localStorage.state = JSON.stringify(loginInfo);
+            props.history.push('/');
             store.dispatch({type:"LOGIN",userinfo:loginInfo,login:true})
             alert(data.Message);
-            props.history.push('/');
            }else{
                alert(data.Message);
            }

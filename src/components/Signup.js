@@ -12,6 +12,7 @@ export default function Signup(props){
     const [lastName,setLastName] = useState("");
     const [phone,setPhone] = useState("");
 
+
     function onSubmit(e){
         e.preventDefault();
         if(password!==confirmPassowrd){
@@ -88,7 +89,7 @@ export default function Signup(props){
         }} type ="text" pattern="[a-z,A-Z]{2,20}" placeholder="LastName" name="lastname"></input> </p>
         <p><input value={phone} onChange={(e)=>{
             setPhone(e.target.value);
-        }} type ="text" pattern="^\d{3}\d{3}\d{4}$" placeholder="PhoneNumber" name ="phone"></input></p>
+        }} type ="text" pattern="^\d{3}\d{3}\d{4}$" placeholder="PhoneNumber" name ="phone" ></input></p>
         <p><input type ="submit"  name="submit" value="Sign Up"></input></p>
         <p>
         <NavLink to="/login">Already have account? Log In</NavLink>

@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import store from "../store/store";
 import { NavLink } from 'react-router-dom';
 export default function Search(){
-    console.log('movieSearch');
     const [id,setid] = useState(store.getState().searchText);
     const [load,setLoad] = useState(store.getState().search.load);
     var data =store.getState().search.data;

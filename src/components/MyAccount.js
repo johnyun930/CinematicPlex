@@ -20,10 +20,7 @@ export default function MyAccount(){
         setEmail(store.getState().userinfo.email);
         setimageUrl(store.getState().userinfo.profile);
 
-    })
-
-    console.log(store.getState().userinfo);
-
+    });
     function dragImageOver (e){
         e.stopPropagation();
         e.preventDefault();
@@ -83,7 +80,6 @@ export default function MyAccount(){
             headers:{},
             body:formdata
         }).then(res=>res.json()).then(data=>{
-            console.log(data);
             let userinfo = {
                 userid: data.UserName,
                  email: data.Email,
@@ -108,13 +104,12 @@ export default function MyAccount(){
                 <div className="userImage">
                     <div>
                         <div style={(imageUrl!==null)?{outline:"none"}:{}}  onDrop={dropFile} onDragLeave={dragImageLeave} onDragOver={dragImageOver}>
-                            <img src={imageUrl}></img>
+                            <img alt="userImage" src={imageUrl}></img>
                         </div>  
                         <input onChange={(e)=>{
                             e.preventDefault();
                             let reader = new FileReader();
                             let file = e.target.files[0];
-                            console.log(file);
                             reader.onloadend = () => {
                                setUserImageFile(file);
                                setimageUrl(reader.result);

@@ -7,7 +7,6 @@ export default function PMovie(){
     var err = store.getState().pmovie.err;
     var data = store.getState().pmovie.data
     var list = [];
-    console.log(store.getState());
     store.subscribe(()=>{
         setLoad(store.getState().pmovie.load)
     });

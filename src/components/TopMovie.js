@@ -38,7 +38,6 @@ export default class TopMovie extends Component{
                         load:true
                     }
                 })
-                console.log("dispatch");
             },(err)=>{
                     
                      store.dispatch({

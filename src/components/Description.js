@@ -19,15 +19,11 @@ export default function Description(props){
             store.dispatch({type:"DESCRIPTION", description:{data:result,err:null,load:true}});
     },(err)=>{
         store.dispatch({type:"DESCRIPTION", description:{data:null,err:err,load:true}});
-        console.log(err);
 
     });
 
 
    });
-   console.log(load);
-    console.log(data);
-    console.log(err);
    if(err!=null){
     return(<h2>ERROR...</h2>)
    }else if(!load){

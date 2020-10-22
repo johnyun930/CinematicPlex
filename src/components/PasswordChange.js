@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import UserNav from './UserNav';
 import store from '../store/store';
-import { NavLink } from 'react-router-dom';
+import {} from 'react-router-dom';
 
 export default function PasswordChange(props){
     const [password,setPassword] = useState("");

@@ -7,7 +7,6 @@ import store from '../store/store';
 
 
 function Header (props){
-    console.log("Header");
     const[toggle,setToggle] = useState(false);
     const[searchtext,setText] = useState("");
     const[login,setlogin] = useState(store.getState().login);
@@ -21,15 +20,11 @@ function Header (props){
             currentstate =<NavLink id="login" to = {"/login"}><div>Login</div></NavLink>;
         }else{
             var userinfo = JSON.parse(localStorage.state);
-
-            console.log(userinfo);
-
             store.dispatch({type:"LOGIN",userinfo:userinfo,login:true})
           
         }
     }else{
-        console.log("Logged in state")
-    currentstate = <div id="usericon" onClick={function(e){setToggle(!toggle); console.log(toggle)}}>{store.getState().userinfo.userid}</div>
+    currentstate = <div id="usericon" onClick={function(e){setToggle(!toggle);}}>{store.getState().userinfo.userid}</div>
     }
   
   
